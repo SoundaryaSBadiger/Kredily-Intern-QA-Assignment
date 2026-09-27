@@ -1,0 +1,21 @@
+Test Case ID,Title,Type,Priority,Steps,Expected Result,Actual/Status,Execution Notes,Bug ID
+TC-001,Login with valid registered email and password,Positive,High,Launch app; enter registered email; enter correct password; tap Sign in,User is authenticated and dashboard opens,Pass*,"Observed dashboard screenshot exists; login screen later reports no account for same email, so execution inconsistency is captured as BUG-001",BUG-001
+TC-002,Login with unregistered email,Negative,High,Enter an email not linked to an account; enter any password; tap Sign in,Clear account-not-found message is displayed,Pass*,Account-not-found message displayed
+TC-003,Login with incorrect password,Negative,High,Enter registered email and wrong password; tap Sign in,Authentication fails with a clear invalid-credentials message; no dashboard access,Not executed,Requires valid account credential control
+TC-004,Email/mobile field rejects malformed email,Negative,Medium,Enter 'peoplekredily1yopmail.com' and continue,Message should identify invalid email format,Fail,Observed message says 'Enter a valid 10-digit mobile number' for a malformed email input,BUG-002
+TC-005,Password field masks password,Positive,Low,Open password login; type password,Characters are masked and visibility icon is available,Pass,Password appears masked with visibility icon
+TC-006,Forgot password navigation,Positive,Medium,Tap Forgot password from password screen,Password recovery flow opens,Not executed,Requires interaction beyond supplied screenshots
+TC-007,Back navigation from password screen,Positive,Low,Tap Back,Returns to login identifier screen,Not executed,Requires live interaction
+TC-008,Dashboard loads after authentication,Positive,High,Authenticate successfully,"Home dashboard shows shift, needs-you, team and weekly attendance sections",Pass,Dashboard screenshot shows all sections
+TC-009,Upcoming shift countdown accuracy,Edge,Medium,Open dashboard before shift,Countdown should correspond to scheduled shift time,Pass,1:24 to 9:30 is approximately 8h 06m; UI showed 8h 05m
+TC-010,Clock In before shift starts,Negative,High,Tap Clock In before scheduled start,App should prevent early clock-in or explain allowed window,Not executed,Button is visible but behavior not captured
+TC-011,Approvals page with Leave tab,Positive,Medium,Open Approvals > Leave,Pending leave requests or empty state is shown correctly,Pass,'All caught up' and 'No pending leave requests' shown
+TC-012,Approvals page with regularization requests,Positive,High,Open Approvals > Reg.,Three pending correction requests are displayed,Pass,3 requests shown with Approve/Reject/View
+TC-013,Approve a regularization request,Positive,High,Open a pending Reg request and tap Approve,Request status changes and pending count decreases,Not executed,Requires live action
+TC-014,Reject a regularization request,Negative,High,Open a pending Reg request and tap Reject,"Request is rejected, with reason flow if required",Not executed,Requires live action
+TC-015,View regularization request details,Positive,Medium,Tap View on a Reg request,Full request details are displayed,Not executed,Requires live interaction
+TC-016,Attendance Team view current day,Positive,Medium,Open Attendance > Team > Sep 28,Team summary and employee status are shown,Pass,Current day shown as Not marked for QA Assessment
+TC-017,Attendance historical day filter,Positive,Low,Select Sep 22-27 in week selector,Historical daily statuses load correctly,Pass,22-27 show statuses in screenshot
+TC-018,Directory search employee,Positive,Medium,Open Directory; search QA Assessment,Matching employee record is displayed,Pass,Directory shows 1 person: QA Assessment
+TC-019,Profile sections navigation,Positive,Medium,Open Profile; inspect Personal/Work/Team/Education etc.,Profile sections are visible and navigable,Pass,Multiple profile sections shown
+TC-020,Profile completion indicator consistency,Edge,Low,Open Profile,Completion percentage and remaining percentage should total 100%,Pass,67% complete + 33% left = 100%

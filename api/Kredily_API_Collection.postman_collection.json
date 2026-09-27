@@ -1,0 +1,86 @@
+{
+  "info": {
+    "name": "Kredily HRMS - API Test Collection",
+    "_postman_id": "kredily-qa-assessment-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://REPLACE_WITH_CAPTURED_API_HOST"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "01 - Login API (discovery required)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"{{email}}\",\"password\":\"{{password}}\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/REPLACE_WITH_LOGIN_ENDPOINT",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "REPLACE_WITH_LOGIN_ENDPOINT"
+          ]
+        }
+      }
+    },
+    {
+      "name": "02 - Dashboard API (discovery required)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/REPLACE_WITH_DASHBOARD_ENDPOINT",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "REPLACE_WITH_DASHBOARD_ENDPOINT"
+          ]
+        }
+      }
+    },
+    {
+      "name": "03 - Attendance API (discovery required)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/REPLACE_WITH_ATTENDANCE_ENDPOINT",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "REPLACE_WITH_ATTENDANCE_ENDPOINT"
+          ]
+        }
+      }
+    }
+  ]
+}
